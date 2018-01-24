@@ -4,6 +4,7 @@ slidenumbers: false
 
 # **Introduction to iOS**
 ## using Swift
+##### Download the source from our [github repository](https://github.com/littleendians/intro-ios-swift).
 
 ---
 # Jens Nerup
@@ -251,4 +252,4 @@ Working with REST API? Then consider this to explore the API.
 Vector graphics editor - alternative to Adobe Illustrator.
 
 ---
-![inline 100%](assets/littleendianlogo.pdf)
+![inline 120%](assets/littleendianlogo.pdf)
