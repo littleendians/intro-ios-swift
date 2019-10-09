@@ -1,12 +1,10 @@
 theme: Plain Jane, 2
-footer: © Little Endian, 2018
+footer: © 2019 Little Endian & MAKE//CPH
 slidenumbers: false
-
 
 # **Introduction to iOS**
 
 ## using Swift
-##### Download the source from our [github repository](https://github.com/littleendians/intro-ios-swift).
 
 ---
 
@@ -24,7 +22,7 @@ slidenumbers: false
 
 # Agenda
 
-* Swift & iOS Platform
+* Swift & the iOS Platform
 * Cocoa Design Patterns
 * Application Launch
 * View Controller
@@ -40,13 +38,13 @@ slidenumbers: false
 
 * Publicly announced during WWDC 2014 - June 2014
 * Version 1.0 released with iOS 8 on **September 17, 2014**
-* Latest version (4.0.3) released on **December 5, 2017**
+* Latest version (5.1) released on **September 19, 2019**
 * Builds on the best of C and Objective-C and many other languages
 * Seamless access to all existing Cocoa frameworks
 
 ---
 
-# Swift
+# Swift - continued
 
 * Safe programming patterns and "modern" features
 * Mix-and-match interoperability with C and Objective-C
@@ -56,13 +54,22 @@ slidenumbers: false
 
 ---
 
+# Simplified: Swift Types
+
+* Enum
+* Struct
+* Class
+* Protocol
+
+<!-- ---
+
 # Swift - Memory
 
 * __A__utomatic __R__eference __C__ounting aka __ARC__
 * [Reference counting applies only to instances of classes](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html
 ).
 * Watch out for *Retain Cycles* and *[Closure captures](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID103)*
-
+ -->
 ---
 
 # iOS - App, Graphics & Games Frameworks
@@ -85,13 +92,11 @@ AVKit, WebKit, Safari Services, ...
 
 ---
 
-# Essentials
+# Essential Cocoa Design Patterns
 
 ---
 
-# Essential Cocoa Design Patterns
-
-## 3 essential patterns
+# 3 Essential Design Patterns
 
 * Model View Controller - MVC
 * Delegate Pattern
@@ -233,7 +238,7 @@ weak var delegate: PlaygroundServiceDelegate?
 * Separate the __datasources__ and __delegates__ from the __ViewController__
 * Move networking to separate classes
 * Move domain display formatting to separate classes - presenters/view-model.
-* Use categories on e.g. cells to set domain information.
+* Use categories on e.g. cells to set domain information - try to make 'em fileprivate.
 
 ---
 
@@ -251,30 +256,28 @@ weak var delegate: PlaygroundServiceDelegate?
 
 # Online
 
-* [The Swift Programming Language (Swift 5.1)](https://developer.apple.com/library/prerelease/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html)
-* [Intro to App Development with Swift](https://itunes.apple.com/dk/book/intro-to-app-development-with-swift/id1118575552?mt=11) (iBooks)
-* [App Development with Swift](https://itunes.apple.com/dk/book/app-development-with-swift/id1219117996?mt=11) (iBooks)
+* [Source code for this presentation](https://github.com/littleendians/intro-ios-swift)
+* [The Swift Programming Language (Swift 5.1)](https://docs.swift.org/swift-book/) (website)
+* [Developing iOS 10 Apps with Swift](https://itunes.apple.com/us/course/developing-ios-10-apps-with-swift/id1198467120)
 * [API Reference](https://developer.apple.com/reference)
 * [Swift Playgrounds for iPad](https://www.apple.com/swift/playgrounds/)
-* [This week in Swift](https://swiftnews.curated.co) (newsletter)
 * [iOS Dev Weekly](https://iosdevweekly.com) (newsletter)
 
 ---
 
 # Online - continued
 
+* [Hacking With Swift](https://www.hackingwithswift.com)
 * [8 Patterns to Help You Destroy Massive View Controller](http://khanlou.com/2014/09/8-patterns-to-help-you-destroy-massive-view-controller/)
 * [SOLID](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
-* [Swift Package Manager](https://swift.org/package-manager/) - Package Manager
-* [Cocoapods](https://cocoapods.org) - Package Manager
-* [Carthage](https://github.com/Carthage/Carthage) - Package Manager
+* [Swift Package Manager](https://swift.org/package-manager/) - Official Swift Package Manager
+* [Cocoapods](https://cocoapods.org) - Open Source Package Manager
+* [Carthage](https://github.com/Carthage/Carthage) - Open Source Package Manager
 
 ---
 
-# Offline
+# Oldies but Goodies
 
-* [__iOS Programming: The Big Nerd Ranch Guide 5th Edition__
-by Christian Keur and Aaron Hillegass](https://www.amazon.co.uk/gp/product/0321942051/ref=pd_sim_14_2?ie=UTF8&psc=1&refRID=9EEFD1RZJCBQ8WA562S8)
 * [__Programming in Objective-C__
 by Stephen Kochan](https://www.amazon.co.uk/Programming-Objective-C-Developers-Library-Stephen/dp/0321967607/ref=sr_1_1?ie=UTF8&qid=1479728446&sr=8-1&keywords=Programming+in+Objective-C)
 * [__The C Programming Language (2nd Edition)__
@@ -287,14 +290,15 @@ by Brian W. Kernighan and Dennis Ritchie](https://www.amazon.co.uk/C-Programming
 * [AppCode](https://www.jetbrains.com/objc/)
 Alternative IDE to Xcode but not a full replacement yet.
 * [Kaleidoscope](http://www.kaleidoscopeapp.com)
-Great diff and merge tool.
-* [GitUp](http://gitup.co) - (free)
-Superb Mac git client.
+Great diff and merge tool but sadly not in active development.
 * [Tower](https://www.git-tower.com/mac/)
-Another great commercial git client for the Mac.
+Superb commercial = git client.
+* [GitUp](http://gitup.co) - (free)
+Another great open source git client for the Mac.
 
 ---
-# Selected Extra Tools
+
+# Selected Extra Tools - continued
 
 * [SimPholders](https://simpholders.com)
 A lovely little tool to manage your simulators.
@@ -303,7 +307,4 @@ When working with REST API's this is a must as a proxy.
 * [Paw](https://paw.cloud)
 Working with REST API? Then consider this to explore the API.
 * [Sketch](https://www.sketchapp.com)
-Vector graphics editor - alternative to Adobe Illustrator.
-
----
-![inline 100%](Assets/littleendianlogo.pdf)
+Vector graphics editor - suberb alternative to Adobe Illustrator.
