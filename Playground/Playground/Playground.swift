@@ -3,71 +3,52 @@ struct Coordinate {
     let latitude: Double
 }
 
-extension Coordinate: Equatable {
-    static func ==(lhs: Coordinate, rhs: Coordinate) -> Bool {
-        return lhs.longitude == rhs.longitude && lhs.latitude == rhs.latitude
-    }
-}
-
-struct Playground {
-    let id: Int
+struct Playground: Identifiable {
+    let id: String
     let name: String
     let addressDescription: String?
     let description: String?
     let coordiante: Coordinate
 }
 
-extension Playground: Equatable {
-    static func ==(lhs: Playground, rhs: Playground) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.name == rhs.name &&
-            lhs.addressDescription == rhs.addressDescription &&
-            lhs.description == rhs.description &&
-            lhs.coordiante == rhs.coordiante
+// MARK:- Equatable Extension
+
+extension Coordinate: Equatable {}
+extension Playground: Equatable {}
+
+// MARK:- Decodable Extension
+
+extension Coordinate: Decodable {
+
+    enum CodingKeys: String, CodingKey {
+        case longitude = "lng"
+        case latitude = "lat"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.longitude = try container.decode(Double.self, forKey: .longitude)
+        self.latitude = try container.decode(Double.self, forKey: .latitude)
     }
 }
 
-// MARK:- Custom Failing Initializer Extension
-extension Playground {
+extension Playground: Decodable {
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case address = "addressDescription"
+        case description
+        case position
+    }
     
-    init?(attributes: [String:Any]) {
-        guard let properties = attributes["properties"] as? [String: AnyObject] else {
-            return nil
-        }
-        
-        guard let id = properties["id"] as? Int else {
-            return nil
-        }
-        
-        guard let addressDescription = properties["adressebeskrivelse"] as? String else {
-            return nil
-        }
-        
-        guard let description = properties["beskrivelse"] as? String else {
-            return nil
-        }
-        
-        guard let name = properties["navn"] as? String else {
-            return nil
-        }
-        
-        
-        guard let geo = attributes["geometry"] as? [String: AnyObject] else {
-            return nil
-        }
-        
-        guard let coordinates = geo["coordinates"] as? [[Double]] else {
-            return nil
-        }
-        
-        let lat: Double = coordinates[0][1]
-        let long: Double = coordinates[0][0]
-        
-        self.id = id
-        self.name = name
-        self.description = description
-        self.addressDescription = addressDescription
-        self.coordiante = Coordinate(longitude: long, latitude: lat)
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.addressDescription = try container.decodeIfPresent(String.self, forKey: .address)
+        self.description = try container.decodeIfPresent(String.self, forKey: .description)
+        self.coordiante = try container.decode(Coordinate.self, forKey: .position)
     }
 }
 

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hlD-jx-7h4">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hlD-jx-7h4">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-Af-WsH">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-Af-WsH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BqF-Af-WsH" secondAttribute="height" multiplier="9:16" id="ejg-73-Jbl"/>
-                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="PGy-zJ-CWA"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AKF-N3-4cn"/>
                                 </connections>
@@ -31,10 +25,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BqF-Af-WsH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2ft-iM-0Vn"/>
-                            <constraint firstItem="BqF-Af-WsH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6ug-zW-Wzc"/>
-                            <constraint firstAttribute="trailing" secondItem="BqF-Af-WsH" secondAttribute="trailing" id="If1-Hw-esS"/>
-                            <constraint firstItem="BqF-Af-WsH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vZx-2m-7ji"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BqF-Af-WsH" secondAttribute="bottom" id="5ra-eZ-sEr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BqF-Af-WsH" secondAttribute="trailing" id="7dw-GD-PwV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="BqF-Af-WsH" secondAttribute="top" constant="44" id="eli-zb-U1g"/>
+                            <constraint firstItem="BqF-Af-WsH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uhO-da-3ZC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -53,7 +47,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hlD-jx-7h4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ure-Bh-iab">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

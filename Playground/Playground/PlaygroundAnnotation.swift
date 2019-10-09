@@ -1,9 +1,9 @@
 import Foundation
 import MapKit
 
-class PlaygroundAnnotation: NSObject, MKAnnotation {
+final class PlaygroundAnnotation: NSObject, MKAnnotation {
 
-    let id: Int
+    let id: String
 
     var coordinate: CLLocationCoordinate2D
     
@@ -13,8 +13,7 @@ class PlaygroundAnnotation: NSObject, MKAnnotation {
 
     init(playground: Playground) {
         self.id = playground.id
-        self.coordinate =  CLLocationCoordinate2D(latitude: playground.coordiante.latitude,
-                                                  longitude: playground.coordiante.longitude)
+        self.coordinate =  CLLocationCoordinate2D(latitude: playground.coordiante.latitude, longitude: playground.coordiante.longitude)
         self.title = playground.name
         self.subtitle = playground.description
     }

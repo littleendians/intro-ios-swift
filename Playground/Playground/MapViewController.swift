@@ -1,33 +1,49 @@
 import UIKit
 import MapKit
 import CoreLocation
+import os.log
 
 final class MapViewController: UIViewController {
 
-    let kAnnotationReuseIdentifier = "AnnotationView"
+    private let kCopenHagenCenterCoordinate = CLLocationCoordinate2D(latitude: 55.676111, longitude: 12.568333)
     
-    var locationManager: CLLocationManager?
+    private let kAnnotationReuseIdentifier = "AnnotationView"
     
-    lazy var service = PlaygroundService()
+    private var locationManager: CLLocationManager?
     
-    var searchContoller: UISearchController?
+    private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "service")
     
+    private lazy var service: PlaygroundService = {
+        let service = PlaygroundFileService()
+        return service
+    }()
+    
+    fileprivate lazy var searchContoller: UISearchController = {
+        let searchContoller = UISearchController(searchResultsController: resultController)
+        searchContoller.searchResultsUpdater = resultController
+        searchContoller.hidesNavigationBarDuringPresentation = false
+        return searchContoller
+    }()
+    
+    private lazy var resultController: SearchResultController = {
+        let controller = SearchResultController()
+        controller.delegate = self
+        return controller
+    }()
+
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let controller = SearchResultController(nibName: nil, bundle: nil)
-        controller.delegate = self
+        mapView.showsUserLocation = true
+        mapView.register(PlaygroundAnnotationView.self, forAnnotationViewWithReuseIdentifier: kAnnotationReuseIdentifier)
+        center(at: kCopenHagenCenterCoordinate)
         
-        searchContoller = UISearchController(searchResultsController: controller)
-        searchContoller?.searchResultsUpdater = controller
-        searchContoller?.dimsBackgroundDuringPresentation = false
-        searchContoller?.hidesNavigationBarDuringPresentation = false
-        if let searchBar = searchContoller?.searchBar {
-            self.navigationItem.titleView = searchBar
-            searchBar.sizeToFit()
-        }
+        let searchBar = searchContoller.searchBar
+        self.navigationItem.titleView = searchBar
+        searchBar.sizeToFit()
+        
         self.definesPresentationContext = true
         
         if CLLocationManager.locationServicesEnabled() {
@@ -39,23 +55,25 @@ final class MapViewController: UIViewController {
             locationManager?.requestLocation()
         }
         
-        service.fetchPlaygrounds { [weak self] (playgrounds) in
-            let annotations = playgrounds.map(PlaygroundAnnotation.init)
-            self?.mapView.addAnnotations(annotations)
-            controller.setData(playgrounds)
+        service.fetchPlaygrounds { [weak self] (result) in
+            switch result {
+            case let .success(playgrounds):
+                let annotations = playgrounds.map(PlaygroundAnnotation.init)
+                self?.mapView.addAnnotations(annotations)
+                self?.resultController.setData(playgrounds)
+            case let .failure(error):
+                os_log("Error occured while calling fetchPlaygrounds: %@", error.localizedDescription)
+            }
         }
-        
-        mapView.register(PlaygroundAnnotationView.self,
-                         forAnnotationViewWithReuseIdentifier: kAnnotationReuseIdentifier)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         locationManager?.stopUpdatingLocation()
     }
 
     func center(at coordinate: CLLocationCoordinate2D) {
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 500, 500), animated: true)
+        mapView.setRegion(MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500), animated: true)
     }
     
 }
@@ -63,13 +81,9 @@ final class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? PlaygroundAnnotation {
-            // dequeueReusableAnnotationViewWithAnnotation is part of the Reusable+Additionals
-            // extension and not part of the standard API.
-            let view = mapView.dequeueReusableAnnotationView(withIdentifier: kAnnotationReuseIdentifier,
-                                                             for: annotation)
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: kAnnotationReuseIdentifier, for: annotation)
             return view
         }
         return nil
@@ -88,7 +102,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
-        assertionFailure("Stop press - we got an error: \(error.localizedDescription)")
+        os_log("Error occured while calling CLLocationManager: %@", error.localizedDescription)
     }
     
 }
@@ -106,6 +120,6 @@ extension MapViewController: SearchResultControllerDelegate {
         guard let annotation = annotations.first else { return }
         center(at: annotation.coordinate)
         mapView.selectAnnotation(annotation, animated: true)
-        searchContoller?.isActive = false
+        searchContoller.isActive = false
     }
 }

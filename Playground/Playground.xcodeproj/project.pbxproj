@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B424281020189A73003790FA /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424280F20189A73003790FA /* Playground.swift */; };
+		B4C4647F234E5D7F00F1EF1E /* PlaygroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4647E234E5D7F00F1EF1E /* PlaygroundService.swift */; };
+		B4C46483234E637400F1EF1E /* PlaygroundFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C46482234E637400F1EF1E /* PlaygroundFileService.swift */; };
+		B4C46485234E6A6200F1EF1E /* Copenhagen.json in Resources */ = {isa = PBXBuildFile; fileRef = B4C46484234E6A6200F1EF1E /* Copenhagen.json */; };
 		B4D83C742017365700EC1853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D83C732017365700EC1853 /* AppDelegate.swift */; };
 		B4D83C762017365700EC1853 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D83C752017365700EC1853 /* MapViewController.swift */; };
 		B4D83C792017365700EC1853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D83C772017365700EC1853 /* Main.storyboard */; };
 		B4D83C7E2017365700EC1853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D83C7C2017365700EC1853 /* LaunchScreen.storyboard */; };
 		B4D83C862017388F00EC1853 /* Copenhagen.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B4D83C852017388F00EC1853 /* Copenhagen.gpx */; };
-		B4D83C88201746C500EC1853 /* PlaygroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D83C87201746C500EC1853 /* PlaygroundService.swift */; };
 		B4D83C8A20174DC600EC1853 /* PlaygroundAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D83C8920174DC600EC1853 /* PlaygroundAnnotation.swift */; };
 		B4D83C8C2017583700EC1853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D83C8B2017583700EC1853 /* Assets.xcassets */; };
 		B4D83C8E201758C000EC1853 /* PlaygroundAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D83C8D201758C000EC1853 /* PlaygroundAnnotationView.swift */; };
@@ -22,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		B424280F20189A73003790FA /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		B4C4647E234E5D7F00F1EF1E /* PlaygroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundService.swift; sourceTree = "<group>"; };
+		B4C46482234E637400F1EF1E /* PlaygroundFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundFileService.swift; sourceTree = "<group>"; };
+		B4C46484234E6A6200F1EF1E /* Copenhagen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Copenhagen.json; sourceTree = "<group>"; };
 		B4D83C702017365700EC1853 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D83C732017365700EC1853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4D83C752017365700EC1853 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +34,6 @@
 		B4D83C7D2017365700EC1853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4D83C7F2017365700EC1853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D83C852017388F00EC1853 /* Copenhagen.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Copenhagen.gpx; sourceTree = "<group>"; };
-		B4D83C87201746C500EC1853 /* PlaygroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundService.swift; sourceTree = "<group>"; };
 		B4D83C8920174DC600EC1853 /* PlaygroundAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundAnnotation.swift; sourceTree = "<group>"; };
 		B4D83C8B2017583700EC1853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4D83C8D201758C000EC1853 /* PlaygroundAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundAnnotationView.swift; sourceTree = "<group>"; };
@@ -66,15 +70,17 @@
 		B4D83C722017365700EC1853 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				B4C46484234E6A6200F1EF1E /* Copenhagen.json */,
 				B4D83C852017388F00EC1853 /* Copenhagen.gpx */,
 				B4D83C7F2017365700EC1853 /* Info.plist */,
 				B4D83C732017365700EC1853 /* AppDelegate.swift */,
+				B4D83C752017365700EC1853 /* MapViewController.swift */,
 				B424280F20189A73003790FA /* Playground.swift */,
 				B4D83C8920174DC600EC1853 /* PlaygroundAnnotation.swift */,
 				B4D83C8D201758C000EC1853 /* PlaygroundAnnotationView.swift */,
-				B4D83C87201746C500EC1853 /* PlaygroundService.swift */,
+				B4C46482234E637400F1EF1E /* PlaygroundFileService.swift */,
+				B4C4647E234E5D7F00F1EF1E /* PlaygroundService.swift */,
 				B4D83C8F20175B5A00EC1853 /* SearchResultController.swift */,
-				B4D83C752017365700EC1853 /* MapViewController.swift */,
 				B4D83C8B2017583700EC1853 /* Assets.xcassets */,
 				B4D83C7C2017365700EC1853 /* LaunchScreen.storyboard */,
 				B4D83C772017365700EC1853 /* Main.storyboard */,
@@ -109,11 +115,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Make Copenhagen";
 				TargetAttributes = {
 					B4D83C6F2017365700EC1853 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -141,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C46485234E6A6200F1EF1E /* Copenhagen.json in Resources */,
 				B4D83C7E2017365700EC1853 /* LaunchScreen.storyboard in Resources */,
 				B4D83C792017365700EC1853 /* Main.storyboard in Resources */,
 				B4D83C862017388F00EC1853 /* Copenhagen.gpx in Resources */,
@@ -155,10 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C4647F234E5D7F00F1EF1E /* PlaygroundService.swift in Sources */,
 				B4D83C762017365700EC1853 /* MapViewController.swift in Sources */,
 				B4D83C9020175B5A00EC1853 /* SearchResultController.swift in Sources */,
+				B4C46483234E637400F1EF1E /* PlaygroundFileService.swift in Sources */,
 				B4D83C8A20174DC600EC1853 /* PlaygroundAnnotation.swift in Sources */,
-				B4D83C88201746C500EC1853 /* PlaygroundService.swift in Sources */,
 				B424281020189A73003790FA /* Playground.swift in Sources */,
 				B4D83C8E201758C000EC1853 /* PlaygroundAnnotationView.swift in Sources */,
 				B4D83C742017365700EC1853 /* AppDelegate.swift in Sources */,
@@ -201,6 +210,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -208,6 +218,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -241,6 +252,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -258,6 +270,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -265,6 +278,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -290,6 +304,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -298,13 +313,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYKW8NMWLK;
 				INFOPLIST_FILE = "$(SRCROOT)/Playground/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makecph.Playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -313,13 +330,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYKW8NMWLK;
 				INFOPLIST_FILE = "$(SRCROOT)/Playground/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makecph.Playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
