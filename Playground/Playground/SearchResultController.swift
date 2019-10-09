@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - SearchResultControllerState
+
 fileprivate enum SearchResultControllerState {
     case presenting([Playground])
     case filtering([Playground], [Playground], String)
@@ -19,9 +21,8 @@ fileprivate enum SearchResultControllerState {
     
     var count: Int {
         switch self {
-        case .presenting(let playgrounds):
-            return playgrounds.count
-        case .filtering(_, let playgrounds, _):
+        case let .presenting(playgrounds),
+            let .filtering(_, playgrounds, _):
             return playgrounds.count
         }
     }
@@ -58,9 +59,13 @@ fileprivate enum SearchResultControllerState {
     
 }
 
+// MARK: - SearchResultControllerDelegate
+
 protocol SearchResultControllerDelegate: class {
     func didSelect(playground: Playground, from: SearchResultController)
 }
+
+// MARK: - SearchResultController
 
 final class SearchResultController: UITableViewController {
     
@@ -105,6 +110,7 @@ final class SearchResultController: UITableViewController {
     }
 }
 
+// MARK: - UISearchResultsUpdating Extension
 
 extension SearchResultController: UISearchResultsUpdating {
     
@@ -119,6 +125,8 @@ extension SearchResultController: UISearchResultsUpdating {
     }
     
 }
+
+// MARK: - Private UITableViewCell Extension
 
 private extension UITableViewCell {
     

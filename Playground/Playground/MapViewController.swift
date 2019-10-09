@@ -78,6 +78,7 @@ final class MapViewController: UIViewController {
     
 }
 
+// MARK: - MKMapViewDelegate Extension
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -91,6 +92,7 @@ extension MapViewController: MKMapViewDelegate {
     
 }
 
+// MARK: - CLLocationManagerDelegate Extension
 
 extension MapViewController: CLLocationManagerDelegate {
     
@@ -107,6 +109,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
+// MARK: - SearchResultControllerDelegate Extension
 
 extension MapViewController: SearchResultControllerDelegate {
     

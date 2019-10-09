@@ -51,6 +51,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4C46486234E6EA500F1EF1E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B4D83C8920174DC600EC1853 /* PlaygroundAnnotation.swift */,
+				B4D83C8D201758C000EC1853 /* PlaygroundAnnotationView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B4C46487234E6EAF00F1EF1E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B424280F20189A73003790FA /* Playground.swift */,
+				B4C46482234E637400F1EF1E /* PlaygroundFileService.swift */,
+				B4C4647E234E5D7F00F1EF1E /* PlaygroundService.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		B4D83C672017365700EC1853 = {
 			isa = PBXGroup;
 			children = (
@@ -70,17 +89,14 @@
 		B4D83C722017365700EC1853 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				B4C46484234E6A6200F1EF1E /* Copenhagen.json */,
 				B4D83C852017388F00EC1853 /* Copenhagen.gpx */,
+				B4C46484234E6A6200F1EF1E /* Copenhagen.json */,
 				B4D83C7F2017365700EC1853 /* Info.plist */,
 				B4D83C732017365700EC1853 /* AppDelegate.swift */,
 				B4D83C752017365700EC1853 /* MapViewController.swift */,
-				B424280F20189A73003790FA /* Playground.swift */,
-				B4D83C8920174DC600EC1853 /* PlaygroundAnnotation.swift */,
-				B4D83C8D201758C000EC1853 /* PlaygroundAnnotationView.swift */,
-				B4C46482234E637400F1EF1E /* PlaygroundFileService.swift */,
-				B4C4647E234E5D7F00F1EF1E /* PlaygroundService.swift */,
 				B4D83C8F20175B5A00EC1853 /* SearchResultController.swift */,
+				B4C46487234E6EAF00F1EF1E /* Domain */,
+				B4C46486234E6EA500F1EF1E /* Map */,
 				B4D83C8B2017583700EC1853 /* Assets.xcassets */,
 				B4D83C7C2017365700EC1853 /* LaunchScreen.storyboard */,
 				B4D83C772017365700EC1853 /* Main.storyboard */,
