@@ -78,7 +78,8 @@ AVKit, WebKit, Safari Services, ...
 
 ---
 # Model View Controller
-![inline 100%](assets/MVC.pdf)
+
+![inline 100%](Assets/MVC.pdf)
 
 ---
 # Delegate in Cocoa
@@ -112,7 +113,7 @@ weak var delegate: PlaygroundServiceDelegate?
 
 ---
 # Notification
-![inline 100%](assets/Notification.pdf)
+![inline 100%](Assets/Notification.pdf)
 
 ---
 # Application Launch
@@ -128,7 +129,7 @@ weak var delegate: PlaygroundServiceDelegate?
 
 ---
 
-![inline 80%](assets/ApplicationLaunch.pdf)
+![inline 80%](Assets/ApplicationLaunch.pdf)
 
 ---
 # View Controller
@@ -143,7 +144,7 @@ weak var delegate: PlaygroundServiceDelegate?
 * Each __UIViewController__ has an associated __UIView__ (with zero or more children - the view hierarchy)
 * Defines the initial visual starting point
 
-![right 75%](assets/ViewController_1.pdf)
+![right 75%](Assets/ViewController_1.pdf)
 
 ---
 # Content View Controller
@@ -190,9 +191,9 @@ weak var delegate: PlaygroundServiceDelegate?
 ---
 # Lets get started...
 
-![30%](assets/demo1.png)
-![30%](assets/demo2.png)
-![30%](assets/demo3.png)
+![30%](Assets/demo1.png)
+![30%](Assets/demo2.png)
+![30%](Assets/demo3.png)
 
 ---
 # Resources
@@ -252,4 +253,4 @@ Working with REST API? Then consider this to explore the API.
 Vector graphics editor - alternative to Adobe Illustrator.
 
 ---
-![inline 120%](assets/littleendianlogo.pdf)
+![inline 100%](Assets/littleendianlogo.pdf)
