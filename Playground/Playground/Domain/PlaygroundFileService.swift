@@ -1,19 +1,16 @@
 import Foundation
 
 final class PlaygroundFileService: PlaygroundService {
-
+    
     func fetchPlaygrounds(completion: @escaping ((Result<[Playground], Error>) -> Void)) {
-        guard let url = Bundle.main.url(forResource: "Copenhagen", withExtension: "json") else {
-            // TODO construct error
-            return
-        }
-        do {
+        // Here we force unwrap which in should be avoided as the app will crash
+        // if no URL can be constructed for the given resource.
+        let url = Bundle.main.url(forResource: "Copenhagen", withExtension: "json")!
+
+        completion(Result.init { () -> [Playground] in
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let playgrounds = try decoder.decode([Playground].self, from: data)
-            completion(.success(playgrounds))
-        } catch {
-            completion(.failure(error))
-        }
+            return try decoder.decode([Playground].self, from: data)
+        })
     }
 }

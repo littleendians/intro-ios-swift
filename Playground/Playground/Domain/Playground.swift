@@ -37,7 +37,7 @@ extension Playground: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case address = "addressDescription"
+        case addressDescription
         case description
         case position
     }
@@ -46,7 +46,7 @@ extension Playground: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
-        self.addressDescription = try container.decodeIfPresent(String.self, forKey: .address)
+        self.addressDescription = try container.decodeIfPresent(String.self, forKey: .addressDescription)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.coordiante = try container.decode(Coordinate.self, forKey: .position)
     }

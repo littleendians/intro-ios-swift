@@ -84,8 +84,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? PlaygroundAnnotation {
-            let view = mapView.dequeueReusableAnnotationView(withIdentifier: kAnnotationReuseIdentifier, for: annotation)
-            return view
+            return mapView.dequeueReusableAnnotationView(withIdentifier: kAnnotationReuseIdentifier, for: annotation)
         }
         return nil
     }
