@@ -2,9 +2,9 @@ theme: Plain Jane, 2
 footer: © 2019 Little Endian & MAKE//CPH
 slidenumbers: false
 
-# **Introduction to iOS**
+# **Introduction to iPhone Apps using Swift**
 
-## using Swift
+## October 2019
 
 ---
 
@@ -22,15 +22,53 @@ slidenumbers: false
 
 # Agenda
 
-* Swift & the iOS Platform
+* Languages & Platform
 * Cocoa Design Patterns
-* Application Launch
 * View Controller
+* Application Launch
 * Lets get started...
+* Resources
 
 ---
 
-# Swift & the iOS Platform
+# Languages & Platform
+
+---
+
+# Apple Supported Languages
+
+|     |    Swift   |   Objective C   |
+| ----------- | :-----------: | :-----------: |
+| Typing discipline |    Static, Strong, Inferred    |    Static, Dynamic, Weak    |
+| Influenced by |   Objective-C, Rust, Haskell, Ruby, Python, C#...    |   C, Smalltalk   |
+| Paradigm | Multi-paradigm[^1] | Reflective, class-based object-oriented |
+| First appeared |   2014    |   1984   |
+| Popularization |   Apple    |   NeXT   |
+
+[^1]:Protocol-oriented, object-oriented, functional, imperative, block structured
+
+---
+
+# Objective-C
+
+* Thin layer atop C, and is a "strict superset" of C
+* All of the syntax for non-object-oriented operations are identical to those of C
+* All of the object-oriented features is an implementation of Smalltalk-style messaging.
+* Objective-C++ files are denoted with a .mm file extension. (Combination of C++ and Objective-C syntax)
+
+^ "strict superset" = possible to compile any C program with an Objective-C compiler, and to freely include C language code within an Objective-C class.
+^ non-object-oriented operations: primitive variables, pre-processing, expressions, function declarations, and function calls
+^ implementation program files usually have .m filename extensions, while Objective-C 'header/interface' files have .h extensions (like C)
+
+---
+
+# Objective-C - continued
+
+* Blocks is a nonstandard extension for Objective-C that uses special syntax to create closures[^2].
+* Usable through out all the platforms - macOS, iOS, iPadOS, watchOS and tvOS.
+* Caution - As of iOS 13 some frameworks are only available using Swift.
+
+[^2]: A syntax that is very hard to remember unless you work with it every day http://goshdarnblocksyntax.com
 
 ---
 
@@ -47,41 +85,36 @@ slidenumbers: false
 # Swift - continued
 
 * Safe programming patterns and "modern" features
-* Mix-and-match interoperability with C and Objective-C
+* Mix-and-match interoperability with C and Objective-C (but not C++)
 * Reference types (classes & closures) and value types (structures & enumerations)
 * Actively developed by Apple Inc. and others
 * Open Source - http://swift.org & https://github.com/apple/swift
 
 ---
 
-# Simplified: Swift Types
+# User Interface Frameworks
 
-* Enum
-* Struct
-* Class
-* Protocol
+|     |    UIKit   |   SwiftUI   |
+| ----------- | :-----------: | :-----------: |
+| Language    |    Swift, Objective C   |   Swift   |
+| Platforms    |    iOS/iPadOS/watchOS/tvOS   |   All (incl. macOS)   |
+| Stable    |    Yes   |   Kind of stable  |
+| Type    |     Imperative[^3]   |   Declarative  |
 
-<!-- ---
+[^3]: Mostly works on delegates and callback blocks
 
-# Swift - Memory
-
-* __A__utomatic __R__eference __C__ounting aka __ARC__
-* [Reference counting applies only to instances of classes](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html
-).
-* Watch out for *Retain Cycles* and *[Closure captures](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID103)*
- -->
 ---
 
-# iOS - App, Graphics & Games Frameworks
+# Additional App, Graphics & Games Frameworks
 
 * __App Frameworks__
-Objective-C, Swift Standard Library, Foundation, UIKit
+Swift Standard Library, Foundation, UIKit
 * __Graphics and Games Frameworks__
 Metal, Core Graphics, GLKit, ...
 
 ---
 
-# iOS - App Services, Media and Web Frameworks
+# Additional App Services, Media and Web Frameworks
 
 * __App Services__
 MapKit, Core Location, Core Data, ...
@@ -92,7 +125,7 @@ AVKit, WebKit, Safari Services, ...
 
 ---
 
-# Essential Cocoa Design Patterns
+# Cocoa Design Patterns
 
 ---
 
@@ -115,7 +148,7 @@ AVKit, WebKit, Safari Services, ...
 __Purpose__: _Object expresses certain behaviour to the outside but in reality delegates responsibility for implementing that behaviour to an associated object_.
 
 • Defined using a __protocol__
-• Defining both required and __optional__ methods.
+• Defining both required and __optional__ methods. If Swift only protocol then __optional__ isn't supported
 • Mostly assigned on the delegating __class__
 
 ---
@@ -129,6 +162,7 @@ protocol PlaygroundServiceDelegate: class {
 
 class PlaygroundService {
 ...
+// The delegate should always be weak for class protocols to avoid retain cycles
 weak var delegate: PlaygroundServiceDelegate?
 ...
 }
@@ -147,29 +181,12 @@ weak var delegate: PlaygroundServiceDelegate?
 ---
 
 # Notification
+
 ![inline 100%](Assets/Notification.pdf)
 
 ---
 
-# Application Launch
-
----
-
-# What to Do at Launch Time
-
-* Check the contents of the launch options dictionary for information about why the app was launched, and respond appropriately.
-* Initialise the app’s most critical data structures.
-* Prepare your app’s window and views for display.
-* Be as lightweight as possible to reduce your app’s launch time.
-* Start handling events in less than 5 seconds
-
----
-
-![inline 80%](Assets/ApplicationLaunch.pdf)
-
----
-
-# View Controller
+# UIViewController
 
 ---
 
@@ -189,7 +206,7 @@ weak var delegate: PlaygroundServiceDelegate?
 
 ---
 
-# Content View Controller
+# "Content" View Controller
 
 * Presents content on the screen
 * Should be reusable and self-contained entities.
@@ -200,7 +217,7 @@ weak var delegate: PlaygroundServiceDelegate?
 
 ---
 
-# Massive View Controller
+# MVC ≠ Massive View Controller
 
 ## Should be avoided. Use the [SOLID](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29) principal
 
@@ -242,6 +259,24 @@ weak var delegate: PlaygroundServiceDelegate?
 
 ---
 
+# Application Launch
+
+---
+
+# What to Do at Launch Time
+
+* Check the contents of the launch options dictionary for information about why the app was launched, and respond appropriately.
+* Initialise the app’s most critical data structures.
+* Prepare your app’s window and views for display.
+* Be as lightweight as possible to reduce your app’s launch time.
+* Start handling events in less than 5 seconds
+
+---
+
+![inline 80%](Assets/ApplicationLaunch.pdf)
+
+---
+
 # Lets get started...
 
 ![30%](Assets/demo1.png)
@@ -257,9 +292,10 @@ weak var delegate: PlaygroundServiceDelegate?
 # Online
 
 * [Source code for this presentation](https://github.com/littleendians/intro-ios-swift)
-* [The Swift Programming Language (Swift 5.1)](https://docs.swift.org/swift-book/) (website)
+* [The Swift Programming Language - Swift 5.1](https://docs.swift.org/swift-book/)
 * [Developing iOS 10 Apps with Swift](https://itunes.apple.com/us/course/developing-ios-10-apps-with-swift/id1198467120)
 * [API Reference](https://developer.apple.com/reference)
+* [SwiftUI](https://developer.apple.com/xcode/swiftui/)
 * [Swift Playgrounds for iPad](https://www.apple.com/swift/playgrounds/)
 * [iOS Dev Weekly](https://iosdevweekly.com) (newsletter)
 
@@ -269,7 +305,6 @@ weak var delegate: PlaygroundServiceDelegate?
 
 * [Hacking With Swift](https://www.hackingwithswift.com)
 * [8 Patterns to Help You Destroy Massive View Controller](http://khanlou.com/2014/09/8-patterns-to-help-you-destroy-massive-view-controller/)
-* [SOLID](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
 * [Swift Package Manager](https://swift.org/package-manager/) - Official Swift Package Manager
 * [Cocoapods](https://cocoapods.org) - Open Source Package Manager
 * [Carthage](https://github.com/Carthage/Carthage) - Open Source Package Manager
@@ -278,10 +313,10 @@ weak var delegate: PlaygroundServiceDelegate?
 
 # Oldies but Goodies
 
-* [__Programming in Objective-C__
-by Stephen Kochan](https://www.amazon.co.uk/Programming-Objective-C-Developers-Library-Stephen/dp/0321967607/ref=sr_1_1?ie=UTF8&qid=1479728446&sr=8-1&keywords=Programming+in+Objective-C)
 * [__The C Programming Language (2nd Edition)__
 by Brian W. Kernighan and Dennis Ritchie](https://www.amazon.co.uk/C-Programming-Language-2nd/dp/0131103628/ref=sr_1_1?ie=UTF8&qid=1479728508&sr=8-1&keywords=The+C+Programming+Language+%282nd+Edition%29)
+* [__Programming in Objective-C__
+by Stephen Kochan](https://www.amazon.co.uk/Programming-Objective-C-Developers-Library-Stephen/dp/0321967607/ref=sr_1_1?ie=UTF8&qid=1479728446&sr=8-1&keywords=Programming+in+Objective-C)
 
 ---
 
