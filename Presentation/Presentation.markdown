@@ -11,6 +11,7 @@ slidenumbers: false
 # Jens Nerup
 
 ## [@barkoded](https://twitter.com/barkoded) at Twitter
+## [jens@makecph.com](jens@makecph.com)
 
 ---
 
